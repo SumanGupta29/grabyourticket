@@ -4,8 +4,8 @@
     angular.module('GrabYourTicketApp')
         .controller('HotelBookController', HotelBookController);
 
-    HotelBookController.$inject = ['HotelService'];
-    function HotelBookController(HotelService) {
+    HotelBookController.$inject = ['HotelService', '$state'];
+    function HotelBookController(HotelService, $state) {
         var hotelBookCtrl = this;
         var { hotelName, checkInDate, checkOutDate } = HotelService.getHotelDetails();
         hotelBookCtrl.fullName = sessionStorage.getItem('fullName');
@@ -23,12 +23,15 @@
         hotelBookCtrl.phoneNo = '';
 
         hotelBookCtrl.book = function () {
-            console.log(hotelBookCtrl.checkInTime);
-            console.log(hotelBookCtrl.room);
-            console.log(hotelBookCtrl.adult);
-            console.log(hotelBookCtrl.children);
-            console.log(hotelBookCtrl.infant);
-            console.log(hotelBookCtrl.phoneNo);
+            var response = HotelService.bookHotel(hotelBookCtrl.hotelName, hotelBookCtrl.checkInDate, hotelBookCtrl.checkInTime, hotelBookCtrl.room, hotelBookCtrl.phoneNo)
+            response.then(result => {
+                console.log(result);
+                $state.go('home');
+                swal("Hotel booked Successfully!", "Click the Below Button!", "success");
+            })
+                .catch(err => {
+                    console.log(err);
+                });
         }
     }
 })();

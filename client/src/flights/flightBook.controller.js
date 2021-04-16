@@ -24,23 +24,15 @@
         flightBookCtrl.phoneNo = '';
 
         flightBookCtrl.book = function () {
-
-            console.log(flightBookCtrl.departureTime);
-            console.log(flightBookCtrl.classes);
-            console.log(flightBookCtrl.adult);
-            console.log(flightBookCtrl.children);
-            console.log(flightBookCtrl.infant);
-            console.log(flightBookCtrl.message);
-            console.log(flightBookCtrl.phoneNo);
-            var response = FlightService.bookFlightTicket(flightBookCtrl.departureTime, flightBookCtrl.class, flightBookCtrl.adult, flightBookCtrl.children, flightBookCtrl.infant, flightBookCtrl.message, flightBookCtrl.phoneNo)
+            var response = FlightService.bookFlightTicket(flightBookCtrl.departureTime, flightBookCtrl.class, flightBookCtrl.adult, flightBookCtrl.children, flightBookCtrl.infant, flightBookCtrl.message, flightBookCtrl.phoneNo, flightBookCtrl.sourceName, flightBookCtrl.destinationName, flightBookCtrl.airlineName, flightBookCtrl.date)
             response.then(result => {
                 console.log(result);
                 $state.go('home');
                 swal("Ticket booked Successfully!", "Click the Below Button!", "success");
             })
-            .catch(err => {
-                console.log(err);
-            });
+                .catch(err => {
+                    console.log(err);
+                });
         }
     }
 })();

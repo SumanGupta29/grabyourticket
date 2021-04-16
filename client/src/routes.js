@@ -69,6 +69,11 @@
                 url: '/signup',
                 templateUrl: 'src/authentication/signup.template.html',
                 controller: 'SignupController as signupCtrl',
+            })
+            .state('booking-history', {
+                url: '/booking-history',
+                templateUrl: 'src/history/booking-history.template.html',
+                controller: 'HistoryController as historyCtrl'
             });
     }
 })();

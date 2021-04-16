@@ -69,6 +69,9 @@
   <!-- Main Controller -->
   <script src="src/main.controller.js"></script>
 
+  <!-- History Controller -->
+  <script src="src/history/history.controller.js"></script>
+
 </head>
 
 <body ng-controller="MainController as mainCtrl">
@@ -87,10 +90,10 @@
         style="text-decoration:none; color:white;">
         <h4><i class="fa fa-train"></i> Trains</h4>
       </a></span>
-    <span class="nav-menu"><a ui-sref="bus-search" ui-sref-active="active-tab"
+    <!-- <span class="nav-menu"><a ui-sref="bus-search" ui-sref-active="active-tab"
         style="text-decoration:none; color:white;">
         <h4><i class="fa fa-bus"></i> Bus</h4>
-      </a></span>
+      </a></span> -->
     <span class="nav-menu"><a ui-sref="hotel-search" ui-sref-active="active-tab"
         style="text-decoration:none; color:white;">
         <h4><i class="fa fa-hotel"></i> Hotels</h4>
@@ -98,6 +101,10 @@
     <span class="nav-menu"><a ui-sref="login" ng-if="!user" ui-sref-active="active-tab"
         style="text-decoration:none; color:white;">
         <h4><i class="fa fa-sign-in"></i> Login</h4>
+      </a></span>
+    <span class="nav-menu" ng-if="user"><a ui-sref="booking-history" ui-sref-active="active-tab"
+        style="text-decoration:none; color:white; cursor: pointer;">
+        <h4><i class="fas fa-history"></i> Booking History</h4>
       </a></span>
     <span class="nav-menu" ng-if="user" style="text-decoration:none; color:white;">Welcome {{user}}</span>
     <span class="nav-menu" ng-if="user"><a ng-click="mainCtrl.logout();"

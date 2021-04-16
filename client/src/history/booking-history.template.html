@@ -1,0 +1,249 @@
+<div class="booking-history-div">
+</div>
+<div class="booking-history-overlap">
+  <div class="container">
+    <h1><img
+        src="https://www.pinclipart.com/picdir/big/43-430328_history-vector-story-book-history-icon-png-clipart.png"
+        alt="" height="60px;">
+      Booking History</h1>
+  </div>
+</div>
+<div class="container">
+  <ul class="nav nav-tabs row">
+    <li class="nav-item col-sm-4">
+      <a class="nav-link active" href="#train-tab" role="tab" data-toggle="tab" target="_self">
+        <h3>
+          <center>Train Tickets</center>
+        </h3>
+      </a>
+    </li>
+    <li class="nav-item  col-sm-4">
+      <a class="nav-link" href="#flight-tab" role="tab" data-toggle="tab" target="_self">
+        <h3>
+          <center>Flight Tickets</center>
+        </h3>
+      </a>
+    </li>
+    <li class="nav-item col-sm-4">
+      <a class="nav-link" href="#hotel-tab" role="tab" data-toggle="tab" target="_self">
+        <h3>
+          <center>Hotel Tickets</center>
+        </h3>
+      </a>
+    </li>
+  </ul>
+  <div>
+    <div class="tab-content">
+      <div role="tabpanel" class="tab-pane fade" id="train-tab">
+        <div class="card shadow-lg" ng-repeat="item in historyCtrl.data" ng-if="item.Booking_type == 'Train'">
+          <div class="card mt-5 mx-5 px-2 py-2 my-2 pl-5 pt-5 booking-history-card-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <h5>From</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>To</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Train no.</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <p>{{item.from}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.to}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.Train_number}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4">
+                <h5>Train name</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Departure date</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Departure time</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <p>{{item.Train_name}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.Departure_date}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.Departure_time}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4">
+                <h5>Number of adults</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Number of children</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Ticket class</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <p>{{item.no_of_adults}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.no_of_childrens}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.Class}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="flight-tab">
+        <div class="card shadow-lg" ng-repeat="item in historyCtrl.data" ng-if="item.Booking_type == 'Flight'">
+          <div class="card mt-5 mx-5 px-2 py-2 my-2 pl-5 pt-5 booking-history-card-body">
+            <div class="row">
+              <div class="col-sm-4">
+                <h5>From</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>To</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Airline name</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <p>{{item.from}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.to}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.Airline_name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4">
+                <h5>Ticket class</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Departure date</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Departure time</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <p>{{item.Class}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.Departure_date}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.Departure_time}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4">
+                <h5>Number of adults</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Number of children</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Number of infants</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <p>{{item.no_of_adults}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.no_of_childrens}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.no_of_infants}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div role="tabpanel" class="tab-pane fade" id="hotel-tab">
+        <div class="card shadow-lg" ng-repeat="item in historyCtrl.data" ng-if="item.Booking_type == 'Hotel'">
+          <div class="card mt-5 mx-5 px-2 py-2 my-2 pl-5 pt-5 booking-history-card-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <h5>Hotel name</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <p>{{item.Hotel_name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4">
+                <h5>Preferred room</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Check-in date</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Check-in time</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <p>{{item.Room_type}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.Arrival_date}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.Arrival_time}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-4">
+                <h5>Number of adults</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Number of children</h5>
+              </div>
+              <div class="col-sm-4">
+                <h5>Number of infants</h5>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-4">
+                <p>{{item.no_of_adults}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.no_of_childrens}}</p>
+              </div>
+              <div class="col-sm-4">
+                <p>{{item.no_of_infants}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

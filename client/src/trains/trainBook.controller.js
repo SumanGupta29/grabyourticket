@@ -4,8 +4,8 @@
     angular.module('GrabYourTicketApp')
         .controller('TrainBookController', TrainBookController);
 
-    TrainBookController.$inject = ['TrainService'];
-    function TrainBookController(TrainService) {
+    TrainBookController.$inject = ['TrainService', '$state'];
+    function TrainBookController(TrainService, $state) {
         var trainBookCtrl = this;
         trainBookCtrl.fullName = sessionStorage.getItem('fullName');
         trainBookCtrl.email = sessionStorage.getItem('user');
@@ -24,11 +24,15 @@
         trainBookCtrl.phoneNo = '';
 
         trainBookCtrl.book = function () {
-            console.log(trainBookCtrl.class);
-            console.log(trainBookCtrl.adult);
-            console.log(trainBookCtrl.children);
-            console.log(trainBookCtrl.infant);
-            console.log(trainBookCtrl.phoneNo);
+            var response = TrainService.bookTrainTicket(trainBookCtrl.trainName, trainBookCtrl.trainNumber, trainBookCtrl.sourceName, trainBookCtrl.destinationName, trainBookCtrl.departTime, trainBookCtrl.date, trainBookCtrl.class, trainBookCtrl.adult, trainBookCtrl.children, trainBookCtrl.infant, trainBookCtrl.phoneNo)
+            response.then(result => {
+                console.log(result);
+                $state.go('home');
+                swal("Ticket booked Successfully!", "Click the Below Button!", "success");
+            })
+                .catch(err => {
+                    console.log(err);
+                });
         }
     }
 })();

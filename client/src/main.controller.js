@@ -8,6 +8,7 @@
     function MainController(AuthenticationService, $rootScope, $location) {
         var mainCtrl = this;
 
+
         mainCtrl.logout = function () {
             var response = AuthenticationService.logout();
             response.then(data => {
@@ -20,5 +21,8 @@
                 }
             })
         }
+
+
+
     }
 })();

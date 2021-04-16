@@ -45,5 +45,27 @@
         service.getSourceAndDestinationName = function () {
             return { sourceName: service.sourceName, destinationName: service.destinationName, date: service.date, departTime: service.departTime, trainName: service.trainName, trainNumber: service.trainNumber }
         }
+
+        service.bookTrainTicket = function (trainName, trainNumber, sourceName, destinationName, departTime, date, classes, adult, children, infant, phoneNo) {
+            var data = {
+                trainName: trainName,
+                trainNumber: trainNumber,
+                sourceName: sourceName,
+                destinationName: destinationName,
+                date: date,
+                departTime: departTime,
+                class: classes,
+                adult: adult,
+                children: children,
+                infant: infant,
+                phoneNo: phoneNo
+
+            };
+            return $http.post(ServerUrl + '/book_train_ticket', data)
+                .then(response => {
+                    // service.getSearchedFlights = response.data.flightData;
+                    return response.data
+                })
+        }
     }
 })();

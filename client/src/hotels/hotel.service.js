@@ -39,5 +39,21 @@
         service.getHotelDetails = function () {
             return { hotelName: service.hotelName, checkInDate: service.checkInDate, checkOutDate: service.checkOutDate }
         }
+
+        service.bookHotel = function (hotelName, checkInDate, checkInTime, room, phoneNo) {
+            var data = {
+                hotelName: hotelName,
+                checkInDate: checkInDate,
+                checkInTime: checkInTime,
+                room: room,
+                phoneNo: phoneNo
+
+            };
+            return $http.post(ServerUrl + '/book_hotel', data)
+                .then(response => {
+                    // service.getSearchedFlights = response.data.flightData;
+                    return response.data
+                })
+        }
     }
 })();

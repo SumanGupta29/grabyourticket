@@ -49,18 +49,21 @@
             return { sourceName: service.sourceName, destinationName: service.destinationName, date: service.date, airlineName: service.airlineName }
         }
 
-        service.bookFlightTicket = function (departureTime, classes, adult, children, infant, message, phoneNo){
+        service.bookFlightTicket = function (departureTime, classes, adult, children, infant, message, phoneNo, sourceName, destinationName, airlineName, date) {
+            console.log(airlineName);
             var data = {
-                departureTime : departureTime,
-                class : classes,
-                adult : adult,
-                children : children,
-                infant : infant,
-                message : message,
-                phoneNo : phoneNo
-
+                departureTime: departureTime,
+                class: classes,
+                adult: adult,
+                children: children,
+                infant: infant,
+                message: message,
+                phoneNo: phoneNo,
+                sourceName: sourceName,
+                destinationName: destinationName,
+                airlineName: airlineName,
+                date: date
             };
-            console.log("Calling.......");
             return $http.post(ServerUrl + '/book_flight_ticket', data)
                 .then(response => {
                     // service.getSearchedFlights = response.data.flightData;
